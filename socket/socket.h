@@ -26,6 +26,23 @@ class TcpSocket {
   int recvMsg(std::string& msg);
 
   private:
+  /**
+   * @brief 忙轮询保证发送数据
+   * @param sockfd 目标套接字
+   * @param buf 数据内容
+   * @param len 数据长度
+   * @return 成功返回true，失败返回false
+   */
+  bool send_all(int sockfd,const void * buf,size_t len);
+
+  /**
+   * @brief 忙轮询保证读取数据
+   * @param sockfd 目标套接字
+   * @param buf 数据存放位置
+   * @param len 数据存放位置长度
+   * @return 成功返回true，失败返回false
+   */
+  bool recv_all(int sockfd,void * buf,size_t len);
   typedef struct bag{
     uint32_t len;
     std::string str;

@@ -25,7 +25,7 @@ bool TcpServer::setListen(unsigned short port) {
 }
 
 bool TcpServer::acceptConn() {
-  int cfd = accept(listenfd_,(struct sockaddr*)&addr, &addr_len);
+  int cfd = accept(listenfd_,NULL, NULL);
   if(cfd == -1)
     return false;
   socket_.reset(new TcpSocket (cfd));
