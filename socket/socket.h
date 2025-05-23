@@ -26,5 +26,10 @@ class TcpSocket {
   int recvMsg(std::string& msg);
 
   private:
+  typedef struct bag{
+    uint32_t len;
+    std::string str;
+  }bag;
+
   int sockfd_;
 };
